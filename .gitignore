@@ -1,0 +1,58 @@
+# Flutter/Dart/Pub関連
+*.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Web関連
+web/
+
+# iOS関連
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/DerivedData/
+**/ios/**/build/
+**/ios/.generated/
+**/ios/Runner.app.dSYM.zip
+
+# Android関連
+**/android/**/gradle-wrapper.jar
+**/android/.gradle/
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+
+# macOS関連
+**/macos/Flutter/ephemeral/
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+
+# Windows関連
+**/windows/flutter/ephemeral/
+
+# Linux関連
+**/linux/flutter/ephemeral/
+
+# Coverage関連
+coverage/
+
+# IDE関連
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# その他
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# 例外（必要に応じてコメントアウト）
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages 
