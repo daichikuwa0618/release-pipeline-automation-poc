@@ -20,16 +20,24 @@ The PoC implements automated workflows to handle:
 
 **Actions**:
 
-- Automatically updates `pubspec.yaml` version to match the branch version
-- Creates a commit with the version update
-- Creates a Pull Request with detailed information
-- Includes reminders to update branch protection rules
+- Creates a `chore/bump-x.y.z` branch from the new `develop-x.y.z` branch
+- Updates `pubspec.yaml` version to match the branch version on the chore branch
+- Creates a commit with the version update on the chore branch
+- Creates a Pull Request from `chore/bump-x.y.z` to `develop-x.y.z` with version update
+- Provides detailed setup instructions and review guidelines
 
 **Example**: When you create `develop-1.2.0`, the workflow:
 
-- Updates `pubspec.yaml` version to `1.2.0+<current_build_number>`
-- Creates a PR titled "feat: parallel development branch for v1.2.0"
-- Provides setup instructions including branch protection rules
+- Creates `chore/bump-1.2.0` branch from `develop-1.2.0`
+- Updates `pubspec.yaml` version to `1.2.0+<current_build_number>` on the chore branch
+- Creates a PR titled "chore: bump version to 1.2.0 for parallel development"
+- Includes review points and next steps for setting up parallel development
+
+**Benefits of PR-based approach**:
+- Allows code review of version changes before they're applied
+- Maintains clean commit history on development branches
+- Provides opportunity to verify version format and correctness
+- Follows GitFlow best practices for branch management
 
 ### 2. Release Branch Automation
 
@@ -79,9 +87,12 @@ This automation supports a parallel development workflow:
 
 1. Create a `develop-x.y.z` branch from `develop`
 2. Push the branch to trigger automation
-3. Review and merge the auto-generated PR
-4. Update branch protection rules as prompted
-5. Continue development on the new branch
+3. Review the auto-generated PR from `chore/bump-x.y.z` to `develop-x.y.z`
+   - Verify the version update is correct
+   - Confirm the version format follows project standards
+4. Merge the version bump PR to apply changes to the development branch
+5. Update branch protection rules for the new `develop-x.y.z` branch as needed
+6. Continue development on the configured branch
 
 ### Releasing a Version
 
